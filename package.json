@@ -8,7 +8,7 @@
   },
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/rainrivas/slng.git"
+    "url": "git+https://github.com/5-gwoap/slng-node"
   },
   "keywords": [
     "slng",
@@ -21,9 +21,9 @@
   "author": "Efrain 'Rain' Rivas",
   "license": "MIT",
   "bugs": {
-    "url": "https://github.com/rainrivas/slng/issues"
+    "url": "https://github.com/5-gwoap/slng-node/issues"
   },
-  "homepage": "https://github.com/rainrivas/slng#readme",
+  "homepage": "https://github.com/5-gwoap/slng-node#readme",
   "bin": {
     "slng": "./index.js"
   },
