@@ -1,3 +1,5 @@
+[![npm version](https://badge.fury.io/js/slng.svg)](https://badge.fury.io/js/slng)
+
 # Slng - The modern slang cli tool
 > Get hip or die trying
 
