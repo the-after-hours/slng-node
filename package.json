@@ -1,0 +1,34 @@
+{
+  "name": "slng",
+  "version": "0.1.0",
+  "description": "Get hip or die trying",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/rainrivas/slng.git"
+  },
+  "keywords": [
+    "slng",
+    "node",
+    "cli",
+    "npm",
+    "urban",
+    "dictionary"
+  ],
+  "author": "Efrain 'Rain' Rivas",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/rainrivas/slng/issues"
+  },
+  "homepage": "https://github.com/rainrivas/slng#readme",
+  "bin": {
+    "slng": "./index.js"
+  },
+  "dependencies": {
+    "commander": "^2.12.2",
+    "request": "^2.83.0"
+  }
+}
