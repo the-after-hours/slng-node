@@ -15,5 +15,7 @@ Once installed, you should be able to call with:
 slng <search string>
 ```
 
+slng will return (up to) the first 3 results by default.
+
 ### License
-[MIT](https://github.com/jwu910/slng/blob/master/LICENSE)
+[MIT](https://github.com/5-gwoap/slng-node/blob/master/LICENSE)
