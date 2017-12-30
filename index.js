@@ -1,4 +1,4 @@
-#!/usr/bin/env node --harmony
+#!/usr/bin/env node -- --harmony
 
 var program = require('commander'),
   request = require('request');
