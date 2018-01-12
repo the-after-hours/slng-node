@@ -4,6 +4,7 @@ var program = require('commander'),
   request = require('request');
 
 program
+  .version(0.1.3)
   .arguments('<phrase>')
   .action((slng) => {
     var options = {
