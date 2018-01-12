@@ -4,7 +4,7 @@ var program = require('commander'),
   request = require('request');
 
 program
-  .arguments('<search_string>')
+  .arguments('<phrase>')
   .action((slng) => {
     var options = {
       method: 'GET',
