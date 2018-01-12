@@ -11,12 +11,23 @@
     "url": "git+https://github.com/5-gwoap/slng-node"
   },
   "keywords": [
-    "slng",
-    "node",
+    "chat",
     "cli",
+    "cool",
+    "define",
+    "definition",
+    "dictionary",
+    "get-hip",
+    "hip",
+    "informal",
+    "lookup",
+    "node",
     "npm",
+    "search",
+    "slang",
+    "slng",
     "urban",
-    "dictionary"
+    "urban-dictionary"
   ],
   "author": "Efrain 'Rain' Rivas",
   "license": "MIT",
