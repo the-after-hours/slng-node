@@ -19,5 +19,13 @@ slng <search string>
 
 slng will return (up to) the first 3 results by default.
 
+
+#### Contributing
+1. Fork it
+2. Fix it
+3. PR it...?
+
+See a problem you don't feel like fixing? Create an issue, but try to be descriptive so we know what you're talking about.
+
 ### License
 [MIT](https://github.com/5-gwoap/slng-node/blob/master/LICENSE)
