@@ -1,7 +1,8 @@
 #!/usr/bin/env node
 
-var program = require('commander'),
-  request = require('request');
+const chalk = require('chalk');
+const program = require('commander');
+const request = require('request');
 
 program
   .version('0.1.4')
