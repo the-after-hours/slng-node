@@ -25,7 +25,7 @@ program
       var trimRes;
       var results = JSON.parse(body).list;
       if (results.length === 0 ) {
-        console.log('No results were found, please try another phrase');
+        console.log(chalk.red('No results were found, please try another phrase'));
       }
       else {
         if (results.length > 3) {
@@ -35,7 +35,7 @@ program
         }
         trimRes.forEach((result) => {
           if (typeof (result.definition) !== undefined) {
-            console.log('=======================\n' + result.definition);
+            console.log(chalk.bold.cyan('=======================\n') + result.definition);
           }
         });
       }
