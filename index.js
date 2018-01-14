@@ -23,16 +23,21 @@ program
       if (err) throw new Error(err);
       var trimRes;
       var results = JSON.parse(body).list;
-      if (results.length > 3) {
-        trimRes = results.slice(0, 3);
-      } else {
-        trimRes = results;
+      if (results.length === 0 ) {
+        console.log('No results were found, please try another phrase');
       }
-      trimRes.forEach((result) => {
-        if (typeof (result.definition) !== undefined) {
-          console.log("=======================\n" + result.definition);
+      else {
+        if (results.length > 3) {
+          trimRes = results.slice(0, 3);
+        } else {
+          trimRes = results;
         }
-      });
+        trimRes.forEach((result) => {
+          if (typeof (result.definition) !== undefined) {
+            console.log('=======================\n' + result.definition);
+          }
+        });
+      }
     });
   })
   .parse(process.argv);
