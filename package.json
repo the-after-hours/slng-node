@@ -39,6 +39,7 @@
     "slng": "./index.js"
   },
   "dependencies": {
+    "chalk": "^2.3.0",
     "commander": "^2.12.2",
     "request": "^2.83.0"
   }
