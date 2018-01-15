@@ -5,7 +5,7 @@ const program = require('commander');
 const request = require('request');
 
 program
-  .version('0.1.4')
+  .version('0.2.0')
   .arguments('<phrase>')
   .action((slng) => {
     var options = {
