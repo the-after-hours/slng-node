@@ -1,10 +1,12 @@
 #!/usr/bin/env node
 
-var program = require('commander'),
-  request = require('request');
+const chalk = require('chalk');
+const program = require('commander');
+const request = require('request');
 
 program
-  .arguments('<slng>')
+  .version('0.2.0')
+  .arguments('<phrase>')
   .action((slng) => {
     var options = {
       method: 'GET',
@@ -22,16 +24,21 @@ program
       if (err) throw new Error(err);
       var trimRes;
       var results = JSON.parse(body).list;
-      if (results.length > 3) {
-        trimRes = results.slice(0, 3);
-      } else {
-        trimRes = results;
+      if (results.length === 0 ) {
+        console.log(chalk.red('No results were found, please try another phrase'));
       }
-      trimRes.forEach((result) => {
-        if (typeof (result.definition) !== undefined) {
-          console.log("=======================\n" + result.definition);
+      else {
+        if (results.length > 3) {
+          trimRes = results.slice(0, 3);
+        } else {
+          trimRes = results;
         }
-      });
+        trimRes.forEach((result) => {
+          if (typeof (result.definition) !== undefined) {
+            console.log(chalk.bold.cyan('=======================\n') + result.definition);
+          }
+        });
+      }
     });
   })
   .parse(process.argv);

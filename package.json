@@ -1,6 +1,6 @@
 {
   "name": "slng",
-  "version": "0.1.3",
+  "version": "0.2.0",
   "description": "Get hip or die trying",
   "main": "index.js",
   "scripts": {
@@ -11,12 +11,23 @@
     "url": "git+https://github.com/5-gwoap/slng-node"
   },
   "keywords": [
-    "slng",
-    "node",
+    "chat",
     "cli",
+    "cool",
+    "define",
+    "definition",
+    "dictionary",
+    "get-hip",
+    "hip",
+    "informal",
+    "lookup",
+    "node",
     "npm",
+    "search",
+    "slang",
+    "slng",
     "urban",
-    "dictionary"
+    "urban-dictionary"
   ],
   "author": "Efrain 'Rain' Rivas",
   "license": "MIT",
@@ -28,6 +39,7 @@
     "slng": "./index.js"
   },
   "dependencies": {
+    "chalk": "^2.3.0",
     "commander": "^2.12.2",
     "request": "^2.83.0"
   }
