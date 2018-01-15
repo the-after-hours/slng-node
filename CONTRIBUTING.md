@@ -2,17 +2,21 @@
 
 Slng-node is an open source project and we're always looking to make our product better. Feel free to browse our [issues](https://github.com/5-gwoap/slng-node/issues) for a fix/enhancement you may be interested in helping out with.
 
-1. Fork this project
-2. Choose an issue
-3. Fix it!
-4. Send a PR to `development`
+#### New Issues
+If you see a current issue or have a feature request, please create an issue and let us know! If you already see a great solution, let's have a discussion about it and figure it out.
 
 #### Branch Names
 Try to keep branch names following the following format:
 
-  `slng-<issue number\>-topic`
+  `slng-<issue number>-topic`
 
   ie: `slng-16-add-contributing-guidelines`
 
-#### New Issues
-If you see a current issue or a feature request, please create an issue and let us know! If you already see a great solution, create the issue and send a PR referencing that issue.
+#### Pull Requests
+When you have done some work and please send the PR against development and comment/link it to the issue you have a suggested fix for.
+
+#### tl;dr
+1. Read through issues
+2. Open issue
+3. Fork this project
+4. Send PR to development

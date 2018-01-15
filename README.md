@@ -21,11 +21,7 @@ slng will return (up to) the first 3 results by default.
 
 
 #### Contributing
-1. Fork it
-2. Fix it
-3. PR it...?
-
-See a problem you don't feel like fixing? Create an issue, but try to be descriptive so we know what you're talking about.
+If you see an issue with slng, feel free to create an issue for review. If we can reproduce the issue, we'll flag the ticket. Check out the rest of our [contributing guidelines](./CONTRIBUTING.md) for more information.
 
 ### License
 [MIT](https://github.com/5-gwoap/slng-node/blob/master/LICENSE)
