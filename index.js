@@ -45,7 +45,7 @@ program.on('--help', function () {
   console.log('');
   console.log('  Examples:');
   console.log('    $ slng gucci');
-  console.log('    $ slng \'extra\'');
+  console.log('    $ slng \'square up\'');
   console.log('');
 });
 
