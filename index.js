@@ -4,6 +4,10 @@ const chalk = require('chalk');
 const program = require('commander');
 const request = require('request');
 
+const consoleWidth = () => {
+  return parseInt(process.stdout.columns)
+}
+
 program
   .version('0.2.0')
   .arguments('<phrase>')
@@ -24,6 +28,9 @@ program
       if (err) throw new Error(err);
       var trimRes;
       var results = JSON.parse(body).list;
+
+      console.log('='.repeat(consoleWidth()));
+
       if (results.length === 0) {
         console.log(chalk.red('No results were found, please try another phrase'));
       } else {
@@ -34,7 +41,11 @@ program
         }
         trimRes.forEach((result) => {
           if (typeof (result.definition) !== undefined) {
-            console.log(chalk.bold.cyan('=======================\n') + result.definition);
+            console.log('Word: ' + chalk.magenta(result.word));
+            console.log('Definition: ' + chalk.magenta(result.definition));
+            console.log('Score: ' + (result.thumbs_up - result.thumbs_down));
+            console.log(chalk.bold.green('Ayys: ') + result.thumbs_up + ' | ' + chalk.bold.red('Nayys: ') + result.thumbs_down);
+            console.log('='.repeat(consoleWidth()));
           }
         });
       }
