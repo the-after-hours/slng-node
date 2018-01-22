@@ -10,8 +10,8 @@ const consoleWidth = () => {
 
 program
   .version('0.2.0')
-  .arguments('<phrase>')
-  .action((slng) => {
+  .arguments('<phrase> [number]')
+  .action((slng, numberOfResults) => {
     var options = {
       method: 'GET',
       url: 'http://api.urbandictionary.com/v0/define',
@@ -24,6 +24,12 @@ program
       }
     }
 
+    var num = numberOfResults;
+
+    if(numberOfResults === undefined) {
+      num = 3;
+    }
+
     request(options, function (err, res, body) {
       if (err) throw new Error(err);
       var trimRes;
@@ -34,15 +40,15 @@ program
       if (results.length === 0) {
         console.log(chalk.red('No results were found, please try another phrase'));
       } else {
-        if (results.length > 3) {
-          trimRes = results.slice(0, 3);
+        if (results.length > num) {
+          trimRes = results.slice(0, num);
         } else {
           trimRes = results;
         }
         trimRes.forEach((result) => {
           if (typeof (result.definition) !== undefined) {
-            console.log('Word: ' + chalk.magenta(result.word));
-            console.log('Definition: ' + chalk.magenta(result.definition));
+            console.log('Word: ' + chalk.bold(result.word));
+            console.log('Definition: ' + chalk.hex('#ffb3ff')(result.definition));
             console.log('Score: ' + (result.thumbs_up - result.thumbs_down));
             console.log(chalk.bold.green('Ayys: ') + result.thumbs_up + ' | ' + chalk.bold.red('Nayys: ') + result.thumbs_down);
             console.log('='.repeat(consoleWidth()));
