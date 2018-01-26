@@ -49,7 +49,7 @@ program
         }
         trimRes.forEach((result) => {
           if (typeof (result.definition) !== undefined) {
-            console.log(chalk.hex('#ffb3ff').bold('Word: ') + chalk.hex('#ffb3ff').bold(result.word));
+            console.log(chalk.hex('#ffb3ff').bold('Word: ') + (result.word));
             console.log(chalk.hex('#ffb3ff').bold('Definition: ') + result.definition);
             console.log(chalk.hex('#ffb3ff').bold('Score: ') + (result.thumbs_up - result.thumbs_down));
             console.log(chalk.bold.green('Ayys: ') + result.thumbs_up + ' | ' + chalk.bold.red('Nayys: ') + result.thumbs_down);
