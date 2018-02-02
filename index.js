@@ -11,7 +11,6 @@ const consoleWidth = () => {
 program
   .version('0.2.0')
   .arguments('<phrase>')
-  .option('-r, --results', 'Specify the number results to display', '3' )
   .action((slng) => {
     var options = {
       method: 'GET',
@@ -53,7 +52,7 @@ program
         });
       }
     });
-  })
+  });
 
 program.on('--help', function () {
   console.log('');
