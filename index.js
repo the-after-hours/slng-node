@@ -29,7 +29,7 @@ program
       var trimRes;
       var results = JSON.parse(body).list;
       var resultsToDisplay = 3;
-      var magenta = 'ffb3ff';
+      const FONT_COLOR = '#ffb3ff';
 
       console.log('='.repeat(consoleWidth()));
 
@@ -43,9 +43,9 @@ program
         }
         trimRes.forEach((result) => {
           if (typeof (result.definition) !== undefined) {
-            console.log(chalk.bold.hex('#' + magenta + '\'')('Word: ') + (result.word));
-            console.log(chalk.bold.hex('#' + magenta + '\'')('Definition: ') + result.definition);
-            console.log(chalk.bold.hex('#' + magenta + '\'')('Score: ') + (result.thumbs_up - result.thumbs_down));
+            console.log(chalk.bold.hex(FONT_COLOR)('Word: ') + result.word);
+            console.log(chalk.bold.hex(FONT_COLOR)('Definition: ') + result.definition);
+            console.log(chalk.bold.hex(FONT_COLOR)('Score: ') + (result.thumbs_up - result.thumbs_down));
             console.log(chalk.bold.green('Ayys: ') + result.thumbs_up + ' | ' + chalk.bold.red('Nayys: ') + result.thumbs_down);
             console.log('='.repeat(consoleWidth()));
           }
