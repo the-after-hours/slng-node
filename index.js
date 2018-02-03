@@ -28,22 +28,24 @@ program
       if (err) throw new Error(err);
       var trimRes;
       var results = JSON.parse(body).list;
+      var resultsToDisplay = 3;
+      const FONT_COLOR = '#ffb3ff';
 
       console.log('='.repeat(consoleWidth()));
 
       if (results.length === 0) {
         console.log(chalk.red('No results were found, please try another phrase'));
       } else {
-        if (results.length > 3) {
-          trimRes = results.slice(0, 3);
+        if (results.length > resultsToDisplay) {
+          trimRes = results.slice(0, resultsToDisplay);
         } else {
           trimRes = results;
         }
         trimRes.forEach((result) => {
           if (typeof (result.definition) !== undefined) {
-            console.log('Word: ' + chalk.magenta(result.word));
-            console.log('Definition: ' + chalk.magenta(result.definition));
-            console.log('Score: ' + (result.thumbs_up - result.thumbs_down));
+            console.log(chalk.bold.hex(FONT_COLOR)('Word: ') + result.word);
+            console.log(chalk.bold.hex(FONT_COLOR)('Definition: ') + result.definition);
+            console.log(chalk.bold.hex(FONT_COLOR)('Score: ') + (result.thumbs_up - result.thumbs_down));
             console.log(chalk.bold.green('Ayys: ') + result.thumbs_up + ' | ' + chalk.bold.red('Nayys: ') + result.thumbs_down);
             console.log('='.repeat(consoleWidth()));
           }
