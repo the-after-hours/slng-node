@@ -29,7 +29,6 @@ program
       var trimRes;
       var results = JSON.parse(body).list;
       var resultsToDisplay = 3;
-      const FONT_COLOR = '#ffb3ff';
 
       console.log('='.repeat(consoleWidth()));
 
@@ -43,9 +42,9 @@ program
         }
         trimRes.forEach((result) => {
           if (typeof (result.definition) !== undefined) {
-            console.log(chalk.bold.hex(FONT_COLOR)('Word: ') + result.word);
-            console.log(chalk.bold.hex(FONT_COLOR)('Definition: ') + result.definition);
-            console.log(chalk.bold.hex(FONT_COLOR)('Score: ') + (result.thumbs_up - result.thumbs_down));
+            console.log(chalk.bold.cyan('Word: ') + result.word);
+            console.log(chalk.bold.cyan('Definition: ') + result.definition);
+            console.log(chalk.bold.cyan('Score: ') + (result.thumbs_up - result.thumbs_down));
             console.log(chalk.bold.green('Ayys: ') + result.thumbs_up + ' | ' + chalk.bold.red('Nayys: ') + result.thumbs_down);
             console.log('='.repeat(consoleWidth()));
           }
