@@ -8,63 +8,73 @@ const consoleWidth = () => {
   return parseInt(process.stdout.columns)
 }
 
+const printResults = (resList) => {
+  resList.forEach((result) => {
+    if (typeof (result.definition) !== undefined) {
+      console.log(chalk.bold.cyan('Word: ') + result.word);
+      console.log(chalk.bold.cyan('Definition: ') + result.definition);
+      console.log(chalk.bold.cyan('Score: ') + (result.thumbs_up - result.thumbs_down));
+      console.log(chalk.bold.green('Ayys: ') + result.thumbs_up + ' | ' + chalk.bold.red('Nayys: ') + result.thumbs_down);
+      console.log('='.repeat(consoleWidth()));
+    }
+  });
+}
+
+const getDefinition = (word) => {
+  let options = {
+    method: 'GET',
+    url: 'http://api.urbandictionary.com/v0/define',
+    qs: {
+      term: word
+    },
+    headers: {
+      'Cache-Control': 'no-cache',
+      Accept: 'application/json'
+    }
+  }
+
+  request(options, function (err, res, body) {
+    if (err) throw new Error(err);
+    let trimRes;
+    const results = JSON.parse(body).list;
+    const resultsToDisplay = 3;
+
+    console.log('='.repeat(consoleWidth()));
+
+    if (results.length === 0) {
+      console.log(chalk.red('No results were found, please try another phrase'));
+    } else {
+      if (results.length > resultsToDisplay) {
+        trimRes = results.slice(0, resultsToDisplay);
+      } else {
+        trimRes = results;
+      }
+
+      printResults(trimRes);
+    }
+  });
+}
+
 program
   .version('0.3.0')
-  .option('-R, --random', 'Display random words (up to 3), cannot be used when passing a phrase')
+  .option('-R, --random', 'Display top results for a random word (up to 3), cannot be used when passing a phrase')
   .arguments('<phrase>')
   .action((slng) => {
-    let options = {
-      method: 'GET',
-      url: 'http://api.urbandictionary.com/v0/define',
-      qs: {
-        term: slng
-      },
-      headers: {
-        'Cache-Control': 'no-cache',
-        Accept: 'application/json'
-      }
-    }
-
-    request(options, function (err, res, body) {
-      if (err) throw new Error(err);
-      var trimRes;
-      var results = JSON.parse(body).list;
-      var resultsToDisplay = 3;
-
-      console.log('='.repeat(consoleWidth()));
-
-      if (results.length === 0) {
-        console.log(chalk.red('No results were found, please try another phrase'));
-      } else {
-        if (results.length > resultsToDisplay) {
-          trimRes = results.slice(0, resultsToDisplay);
-        } else {
-          trimRes = results;
-        }
-        trimRes.forEach((result) => {
-          if (typeof (result.definition) !== undefined) {
-            console.log(chalk.bold.cyan('Word: ') + result.word);
-            console.log(chalk.bold.cyan('Definition: ') + result.definition);
-            console.log(chalk.bold.cyan('Score: ') + (result.thumbs_up - result.thumbs_down));
-            console.log(chalk.bold.green('Ayys: ') + result.thumbs_up + ' | ' + chalk.bold.red('Nayys: ') + result.thumbs_down);
-            console.log('='.repeat(consoleWidth()));
-          }
-        });
-      }
-    });
+    getDefinition(slng);
   });
 
-program.on('--help', function () {
-  console.log('');
-  console.log('  Examples:');
-  console.log('    $ slng gucci');
-  console.log('    $ slng \'square up\'');
-  console.log('');
-});
+program
+  .on('--help', function () {
+    console.log('');
+    console.log('  Examples:');
+    console.log('    $ slng gucci');
+    console.log('    $ slng \'square up\'');
+    console.log('');
+  });
 
 program.parse(process.argv);
 
-if(program.random && process.argv.slice(2).length===1){
+if(program.random && process.argv.slice(2).length === 1) {
   let options = {
       method: 'GET',
       url: 'http://api.urbandictionary.com/v0/random',
@@ -74,32 +84,12 @@ if(program.random && process.argv.slice(2).length===1){
       }
     }
 
-    request(options, function (err, res, body) {
-      if (err) throw new Error(err);
-      var trimRes;
-      var results = JSON.parse(body).list;
-      var resultsToDisplay = 3;
+  request(options, function (err, res, body) {
+    const results = JSON.parse(body).list;
+    const randomWord = results[0].word;
 
-      console.log('='.repeat(consoleWidth()));
+    if (err) throw new Error(err);
 
-      if (results.length === 0) {
-        console.log(chalk.red('No results were found, please try another phrase'));
-      } else {
-        if (results.length > resultsToDisplay) {
-          trimRes = results.slice(0, resultsToDisplay);
-        } else {
-          trimRes = results;
-        }
-        trimRes.forEach((result) => {
-          if (typeof (result.definition) !== undefined) {
-            console.log(chalk.bold.cyan('Word: ') + result.word);
-            console.log(chalk.bold.cyan('Definition: ') + result.definition);
-            console.log(chalk.bold.cyan('Score: ') + (result.thumbs_up - result.thumbs_down));
-            console.log(chalk.bold.green('Ayys: ') + result.thumbs_up + ' | ' + chalk.bold.red('Nayys: ') + result.thumbs_down);
-            console.log('='.repeat(consoleWidth()));
-          }
-        });
-      }
-    });
-
+    getDefinition(randomWord);
+  });
 }
