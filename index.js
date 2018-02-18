@@ -64,9 +64,5 @@ program.on('--help', function () {
 program.parse(process.argv);
 
 if (!process.argv.slice(2).length) {
-  program.outputHelp(make_red);
-}
-
-function make_red(txt) {
-  return chalk.red(txt); //display the help text in red on the console
+  program.outputHelp();
 }
