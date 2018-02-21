@@ -65,14 +65,18 @@ program
 
 program
   .on('--help', function () {
-    console.log('');
-    console.log('  Examples:');
-    console.log('    $ slng gucci');
-    console.log('    $ slng \'square up\'');
-    console.log('');
-  });
+  console.log('');
+  console.log('  Examples:');
+  console.log('    $ slng gucci');
+  console.log('    $ slng \'square up\'');
+  console.log('');
+});
 
 program.parse(process.argv);
+
+if (!process.argv.slice(2).length) {
+  program.outputHelp();
+}
 
 if(program.random && process.argv.slice(2).length === 1) {
   const options = {
