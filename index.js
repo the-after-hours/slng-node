@@ -5,8 +5,8 @@ const program = require('commander');
 const request = require('request');
 
 const consoleWidth = () => {
-  return parseInt(process.stdout.columns)
-}
+  return parseInt(process.stdout.columns);
+};
 
 const printResults = (resList) => {
   resList.forEach((result) => {
@@ -18,7 +18,7 @@ const printResults = (resList) => {
       console.log('='.repeat(consoleWidth()));
     }
   });
-}
+};
 
 const getDefinition = (word) => {
   const options = {
@@ -31,7 +31,7 @@ const getDefinition = (word) => {
       'Cache-Control': 'no-cache',
       Accept: 'application/json'
     }
-  }
+  };
 
   request(options, function (err, res, body) {
     if (err) throw new Error(err);
@@ -53,7 +53,7 @@ const getDefinition = (word) => {
       printResults(trimRes);
     }
   });
-}
+};
 
 program
   .version('0.3.0')
@@ -65,12 +65,12 @@ program
 
 program
   .on('--help', function () {
-  console.log('');
-  console.log('  Examples:');
-  console.log('    $ slng gucci');
-  console.log('    $ slng \'square up\'');
-  console.log('');
-});
+    console.log('');
+    console.log('  Examples:');
+    console.log('    $ slng gucci');
+    console.log('    $ slng \'square up\'');
+    console.log('');
+  });
 
 program.parse(process.argv);
 
@@ -80,13 +80,13 @@ if (!process.argv.slice(2).length) {
 
 if(program.random && process.argv.slice(2).length === 1) {
   const options = {
-      method: 'GET',
-      url: 'http://api.urbandictionary.com/v0/random',
-      headers: {
-        'Cache-Control': 'no-cache',
-        Accept: 'application/json'
-      }
+    method: 'GET',
+    url: 'http://api.urbandictionary.com/v0/random',
+    headers: {
+      'Cache-Control': 'no-cache',
+      Accept: 'application/json'
     }
+  };
 
   request(options, function (err, res, body) {
     const results = JSON.parse(body).list;
