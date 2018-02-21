@@ -21,7 +21,7 @@ const printResults = (resList) => {
 }
 
 const getDefinition = (word) => {
-  let options = {
+  const options = {
     method: 'GET',
     url: 'http://api.urbandictionary.com/v0/define',
     qs: {
@@ -35,7 +35,7 @@ const getDefinition = (word) => {
 
   request(options, function (err, res, body) {
     if (err) throw new Error(err);
-    let trimRes;
+    var trimRes;
     const results = JSON.parse(body).list;
     const resultsToDisplay = 3;
 
@@ -75,7 +75,7 @@ program
 program.parse(process.argv);
 
 if(program.random && process.argv.slice(2).length === 1) {
-  let options = {
+  const options = {
       method: 'GET',
       url: 'http://api.urbandictionary.com/v0/random',
       headers: {
