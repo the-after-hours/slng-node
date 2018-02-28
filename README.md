@@ -13,12 +13,25 @@ npm install -g slng
 #### Usage
 Once installed, you should be able to call with:
 
+##### Standard Use
 ```
 slng <search string>
 ```
 
 slng will return (up to) the first 3 results by default.
+*ability to change number of results coming soon*
 
+##### Random/Shuffle Search
+```
+slng -R
+slng --random
+```
+
+When passing the random flag, slng will search a random word and return (up to) the first 3 results by default.
+*ability to change number of results coming soon*
+
+**NOTE** Random flag does **not** work if you pass a phrase; meaning that slng will search for the phrase.
+e.g. `slng -R gucci` and `slng --random gucci` will return the results for 'gucci'.
 
 #### Contributing
 If you see an issue with slng, feel free to create an issue for review. If we can reproduce the issue, we'll flag the ticket. Check out the rest of our [contributing guidelines](./CONTRIBUTING.md) for more information.
