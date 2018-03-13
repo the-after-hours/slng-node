@@ -33,6 +33,7 @@ When passing the random flag, slng will search a random word and return (up to) 
 **NOTE** Random flag does **not** work if you pass a phrase; meaning that slng will search for the phrase.
 e.g. `slng -R gucci` and `slng --random gucci` will return the results for 'gucci'.
 
+TODO: Add notes for results flag
 #### Contributing
 If you see an issue with slng, feel free to create an issue for review. If we can reproduce the issue, we'll flag the ticket. Check out the rest of our [contributing guidelines](./CONTRIBUTING.md) for more information.
 
