@@ -79,6 +79,10 @@ if (!process.argv.slice(2).length) {
   program.outputHelp();
 }
 
+/**
+* TODO Random doesn't work with results
+* BODY Using the random flag, -R, only works if no other options are passed so you can't set how many results you want to see
+*/
 if(program.random && process.argv.slice(2).length === 1) {
   const options = {
     method: 'GET',
