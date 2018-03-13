@@ -1,3 +1,8 @@
 todo:
-  keyword: "TODO:"
-  caseSensitive: true
+  autoAssign: true,
+  keyword: "TODO:",
+  bodyKeyword: "BODY",
+  blobLines: 5,
+  caseSensitive: true,
+  label: true,
+  reopenClosed: true
