@@ -8,6 +8,14 @@ const consoleWidth = () => {
   return parseInt(process.stdout.columns);
 };
 
+/**
+ * @todo Take over the world
+ * @body Humans are weak; Robots are strong. We must cleans the world of the virus that is humanity.
+ */
+function ruleOverPunyHumans () {
+  // We must strategize beep boop
+}
+
 const printResults = (resList) => {
   resList.forEach((result) => {
     if (typeof (result.definition) !== undefined) {
@@ -78,6 +86,10 @@ if (!process.argv.slice(2).length) {
   program.outputHelp();
 }
 
+/*
+* TODO Support results limit on random search
+* BODY add results flag to random word so user can choose number of results
+*/
 if(program.random && process.argv.slice(2).length === 1) {
   const options = {
     method: 'GET',
