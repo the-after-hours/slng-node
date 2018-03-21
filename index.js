@@ -37,7 +37,7 @@ const getDefinition = (word) => {
     if (err) throw new Error(err);
     var trimRes;
     const results = JSON.parse(body).list;
-    const resultsToDisplay = 3;
+    const resultsToDisplay = program.results;
 
     console.log('='.repeat(consoleWidth()));
 
@@ -58,6 +58,7 @@ const getDefinition = (word) => {
 program
   .version('0.4.1')
   .option('-R, --random', 'Display top results for a random word (up to 3), cannot be used when passing a phrase')
+  .option('-r, --results <res>', 'Choose the number of results to display', 3)
   .arguments('<phrase>')
   .action((slng) => {
     getDefinition(slng);
@@ -78,6 +79,10 @@ if (!process.argv.slice(2).length) {
   program.outputHelp();
 }
 
+/**
+* TODO Random doesn't work with results
+* BODY Using the random flag, -R, only works if no other options are passed so you can't set how many results you want to see
+*/
 if(program.random && process.argv.slice(2).length === 1) {
   const options = {
     method: 'GET',
