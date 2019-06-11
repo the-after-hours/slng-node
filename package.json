@@ -1,6 +1,6 @@
 {
   "name": "slng",
-  "version": "0.4.2",
+  "version": "0.4.3",
   "description": "Get hip or die trying",
   "main": "index.js",
   "scripts": {
