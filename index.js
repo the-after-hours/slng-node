@@ -56,7 +56,7 @@ const getDefinition = (word) => {
 };
 
 program
-  .version('0.4.2')
+  .version('0.4.3')
   .option('-R, --random', 'Display top results for a random word (up to 3), cannot be used when passing a phrase')
   .option('-r, --results <res>', 'Choose the number of results to display', 3)
   .arguments('<phrase>')
