@@ -1,6 +1,6 @@
 {
   "name": "slng",
-  "version": "0.4.2",
+  "version": "0.4.3",
   "description": "Get hip or die trying",
   "main": "index.js",
   "scripts": {
@@ -41,6 +41,6 @@
   "dependencies": {
     "chalk": "^2.4.1",
     "commander": "^2.15.1",
-    "request": "^2.85.0"
+    "request": "^2.88.0"
   }
 }
